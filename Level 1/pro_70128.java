@@ -1,4 +1,4 @@
-// 문제 이름: 내적
+//  내적 (level 1)
 
 public class pro_70128{
     public int solution(int[] a, int[] b) {
