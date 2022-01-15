@@ -63,12 +63,17 @@ public class pro_77484 {
         int [] win_nums1 = {31, 10, 45, 1, 6, 19};
         int [] win_nums2 = {38, 19, 20, 40, 15, 25};
         int [] win_nums3 = {20, 9, 3, 45, 4, 35};
-        int intArray[];
-        intArray = p.solution(lottos1, win_nums1);
-        for(int i=0; i<intArray.length;i++)
-        {
-            System.out.println(intArray[i]);
-        
+        int intArray1[];
+        int intArray2[];
+        int intArray3[];
+        intArray1 = p.solution(lottos1, win_nums1);
+        intArray2 = p.solution(lottos2, win_nums2);
+        intArray3 = p.solution(lottos3, win_nums3);
+        for(int i=0; i<3;i++)
+        {   
+            System.out.println(intArray1[i]);
+            System.out.println(intArray2[i]);
+            System.out.println(intArray3[i]);
         }
        
 
