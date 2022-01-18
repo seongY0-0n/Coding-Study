@@ -1,3 +1,4 @@
+//키패드 누르기(level 1)
 public class pro_67245 {
     public String solution(int[] numbers, String hand) {
         String answer = "";
