@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+//크레인 인형뽑기 (level 1)
 import java.util.Stack;
 
 public class pro_64051{
