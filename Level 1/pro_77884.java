@@ -13,7 +13,6 @@ public class pro_77884 {
             }else{
                 answer-=i;
             }
-
         }
         return answer;
     }
