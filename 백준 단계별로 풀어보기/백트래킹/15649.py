@@ -1,16 +1,17 @@
-N, M = map(int, input().split())
+N,M = map(int,input().split())
 
 arr = list()
 
-def dfs():
-    if len(arr)==M:
-        print(' '.join(map(str, arr)))
+def dfs(d):
+    if d == M:
+        print(*arr)
         return
     
     for i in range(1,N+1):
-        if i not in arr:
-            arr.append(i)
-            dfs()
-            arr.pop()
+        if i in arr:
+            continue
+        arr.append(i)
+        dfs(d+1)
+        arr.pop()
 
-dfs()
+dfs(0)

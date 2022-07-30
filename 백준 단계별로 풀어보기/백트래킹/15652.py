@@ -1,25 +1,19 @@
-N, M = map(int,input().split())
+N,M = map(int, input().split())
 
 arr = list()
 
-def dfs():
+def dfs(s):
     if len(arr)==M:
         print(*arr)
         return
     
-    if len(arr)==0:
-        for i in range(1,N+1):
-            arr.append(i)
-            dfs()
-            arr.pop()
-    else:
-                
-        for i in range(1,N+1):
-            if i >= arr[-1]:
-                arr.append(i)
-                dfs()
-                arr.pop()
+    for i in  range(1,N+1):
+        if i < s:
             continue
+        arr.append(i)
+        s=i
+        dfs(s)
+        arr.pop()
+        s=0
 
-dfs()
-        
+dfs(0)
