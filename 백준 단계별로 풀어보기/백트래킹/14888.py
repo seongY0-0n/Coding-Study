@@ -1,43 +1,40 @@
 N = int(input())
 
-arr = list(map(int, input().split()))
-
-a = list(map(int, input().split()))
+data = list(map(int, input().split()))
+a, b, c, d = map(int, input().split())
 result = list()
-
-def dfs():
-    if sum(a)==0:
-        result.append(res)
+def dfs(s, arr):
+    global  a, b, c, d
+    if s == N:
+        result.append(arr)
         return
+    if a>0:
+        a-=1
+        dfs(s+1,arr + data[s])
+        a+=1
     
-    for i in range(1,N):
-        if i == 0 :
-            res = arr[0]
-        else:
-            for j in range(4):
-                if a[j] == 0:
-                    continue
-                if j==0:
-                    res += arr[i]
-                    a[j]-=1
-                    dfs()
-                elif j==1:
-                    res -= arr[i]
-                    a[j] -= 1
-                    dfs()
-                elif j==2:
-                    res = res* arr[i]
-                    a[j] -= 1
-                    dfs()
-                else:
-                    res //= arr[i]
-                    a[j] -= 1
-                    dfs()
+    if b>0:
+        b-=1
+        dfs(s+1, arr - data[s])
+        b+=1
+        
+    if c>0:
+        c-=1
+        dfs(s+1, arr * data[s])
+        c+=1
+    
+    if d>0:
+        d-=1
+        dfs(s+1,int(arr / data[s]))
+        d+=1
+    
+    
+        
 
-
-dfs()
-print(result)
-                    
+dfs(1,data[0])
+print(max(result))
+print(min(result))
+            
         
     
 
