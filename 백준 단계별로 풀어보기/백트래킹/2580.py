@@ -1,40 +1,46 @@
-arr = list()
+board=list()
+count = 0
 for i in range(9):
-    arr.append(list(map(int,input().split())))
+    a = list(map(int,input().split()))
+    board.append(a)
+    count += a.count(0)
+
+result = board
+
+def check(i,j,data,result):
+    if data in result[i]:
+        return False
     
-
-
-def check(i,j,k):
-    b = [i[0] for i in arr]
-    c = [arr[i][j+1],arr[i][j+2],arr[i+1][j],arr[i+2][j],arr[i+1][j+1],arr[i+2][j+2],arr[i+2][j+1],arr[i+1][j+2]]
-    if k in b:
+    arr1=list()
+    for a in range(9):
+        arr1.append(result[a][j])
+    if data in arr1:
         return False
-    if k in arr[i]:
+    arr2=[result[i//3*3][j//3*3],result[i//3*3][j//3*3+1],result[i//3*3][j//3*3+2]
+          ,result[i//3*3+1][j//3*3],result[i//3*3+1][j//3*3+1],result[i//3*3+1][j//3*3+2]
+          ,result[i//3*3+2][j//3*3],result[i//3*3+2][j//3*3+1],result[i//3*3+2][j//3*3+2]]
+    
+    if data in arr2:
         return False
-    if k in c:
-        return False
+    
     return True
-    
-    
-    
-    
 
-def dfs():
+def dfs(s):
+    if s==count:
+        for i in range(9):
+            print(*result[i])
+        exit(0)
+    
     for i in range(9):
-        if 0 in arr[i]:
-            break
-        print(123)
-        return
-        
-    for i in range(7):
-        for j in range(7):
-            if arr[i][j]==0:
+        if result[i].count(0) == 0:
+            continue
+        index = result[i].index(0)
+        for j in range(1,10):
+            if check(i,index,j,result):
+                result[i][index]=j
+                dfs(s+1)
+                result[i][index]=0
                 
-                for k in range(9):
-                    if check(i,j,k):
-                        arr[i][j]=k
-                        dfs()
-                        
+                
+dfs(0)
 
-dfs()
-print(*arr)
