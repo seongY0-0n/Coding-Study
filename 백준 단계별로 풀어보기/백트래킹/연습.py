@@ -1,2 +1,2 @@
-list = [i for i in range(2)]
-print(list)
+arr = str(input())
+print(arr.pop())
