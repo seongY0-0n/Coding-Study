@@ -1,11 +1,16 @@
-a, b, c = map(int,input().split())
+a,b,c = map(int,input().split())
 
-def mul(x,y):
-    global a,b,c
-    
-    if y!=b:
-        mul(x*a, y+1)
-        return
-    print(x%c)
+sum = 0
 
-mul(1,0)
+def rec(x):
+    if x == 1:
+        return a%c
+    else:
+        tmp = rec(x//2)
+        if x%2 == 0:
+            return (tmp * tmp)%c
+        else: 
+            return (tmp * tmp * a)%c
+
+sum = rec(b)
+print(sum)
