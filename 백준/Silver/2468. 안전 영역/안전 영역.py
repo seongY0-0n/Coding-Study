@@ -7,6 +7,7 @@ def bfs(i, j, limit):
     visited[i][j] = True
     while dq:
         x, y = dq.popleft()
+
         for i in range(4):
             nx = x + dx[i]
             ny = y + dy[i]
@@ -38,5 +39,5 @@ for limit in range(max_limit):
             if not visited[i][j] and land[i][j] > limit:
                 bfs(i, j, limit)
                 result += 1
-    answer = max(answer,result)
+    answer = max(answer, result)
 print(answer)
