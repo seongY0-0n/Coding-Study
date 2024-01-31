@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
@@ -8,11 +9,11 @@ public class Main {
     static String s;
     static int[] arr;
     static int count;
-
+    static StringBuilder sb;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
-
+        sb = new StringBuilder();
 
         n = Integer.parseInt(st.nextToken());
         k = Integer.parseInt(st.nextToken());
@@ -28,9 +29,10 @@ public class Main {
             count++;
             if (count == k) {
                 for (int i = 0; i < level - 1; i++) {
-                    System.out.print(arr[i] + "+");
+                    sb.append(arr[i]).append("+");
                 }
-                System.out.println(arr[level - 1]);
+                sb.append(arr[level-1]);
+                System.out.println(sb);
             }
             return;
         }
