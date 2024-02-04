@@ -11,13 +11,11 @@ public class Main {
   public static void main(String[] args) throws IOException {
     BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     str = br.readLine().toCharArray();
-    StringBuilder sb = new StringBuilder();
     isSelected = new boolean[str.length];
     Arrays.sort(str);
 
     perm(0, ' ');
-    sb.append(count);
-    System.out.println(sb);
+    System.out.println(count);
   }
 
   public static void perm(int depth, char prev) {
