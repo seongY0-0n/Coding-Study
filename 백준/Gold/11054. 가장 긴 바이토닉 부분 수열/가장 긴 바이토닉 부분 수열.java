@@ -17,8 +17,6 @@ public class Main {
         int dp2[] = new int[n + 1];
         Arrays.fill(dp1, 1);
         Arrays.fill(dp2, 1);
-        dp1[0] = 0;
-        dp2[0] = 0;
         for (int i = 1; i < n + 1; i++) {
             for (int j = i + 1; j < n + 1; j++) {
                 if (arr[i] < arr[j]) {
