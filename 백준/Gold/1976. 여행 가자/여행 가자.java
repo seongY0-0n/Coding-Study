@@ -13,7 +13,6 @@ public class Main {
         StringTokenizer st;
         int n = Integer.parseInt(br.readLine());
         int m = Integer.parseInt(br.readLine());
-        int arr[][] = new int[n + 1][n + 1];
         p = new int[n + 1];
         for (int i = 1; i <= n; i++) {
             p[i] = i;
@@ -21,8 +20,7 @@ public class Main {
         for (int i = 1; i <= n; i++) {
             st = new StringTokenizer(br.readLine());
             for (int j = 1; j <= n; j++) {
-                arr[i][j] = Integer.parseInt(st.nextToken());
-                if (arr[i][j] == 1)
+                if (Integer.parseInt(st.nextToken()) == 1)
                     Union(i, j);
             }
         }
@@ -32,7 +30,6 @@ public class Main {
             travel[i] = Integer.parseInt(st.nextToken());
         }
 
-        // System.out.println(Arrays.toString(p));
         int root = Find_Set(travel[0]);
         for (int t : travel) {
             if (root != Find_Set(t)) {
@@ -46,7 +43,7 @@ public class Main {
     public static int Find_Set(int x) {
         if (x == p[x])
             return x;
-        return Find_Set(p[x]);
+        return p[x] = Find_Set(p[x]);
     }
 
     public static void Union(int x, int y) {
