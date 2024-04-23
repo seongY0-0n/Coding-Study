@@ -28,27 +28,27 @@ public class Solution{
                 if (ni < 0 || ni >= board.length || nj < 0 || nj >= board.length || board[ni][nj] == 1)
                     continue;
 
-                switch (t[3]) {
-                    case 0:
-                        if (i == 1)
-                            continue;
-                        break;
-                    case 1:
-                        if (i == 0)
-                            continue;
-                        break;
-                    case 2:
+//                 switch (t[3]) {
+//                     case 0:
+//                         if (i == 1)
+//                             continue;
+//                         break;
+//                     case 1:
+//                         if (i == 0)
+//                             continue;
+//                         break;
+//                     case 2:
 
-                        if (i == 3)
-                            continue;
-                        break;
-                    case 3:
+//                         if (i == 3)
+//                             continue;
+//                         break;
+//                     case 3:
 
-                        if (i == 2)
-                            continue;
-                        break;
+//                         if (i == 2)
+//                             continue;
+//                         break;
 
-                }
+//                 }
 
                 int nPrice = t[2];
                 if (t[3] == -1 || t[3] == i) {
@@ -57,7 +57,7 @@ public class Solution{
                     nPrice += 600;
                 }
 
-                if (!isVisited[ni][nj][i] || board[ni][nj] >= nPrice) {
+                if (!isVisited[ni][nj][i] || (isVisited[ni][nj][i] &&board[ni][nj] >= nPrice)) {
                     isVisited[ni][nj][i] = true;
                     board[ni][nj] = nPrice;
                     q.add(new int[] { ni, nj, nPrice, i });
