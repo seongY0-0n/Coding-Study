@@ -1,32 +1,29 @@
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 public class Main {
+    static int ans = 0;
+    static int[] list = new int[1001];
+    static int[] score = {1,5,10,50};
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int N = Integer.parseInt(br.readLine()); 
+        int n = Integer.parseInt(br.readLine());
+        back(0, 0, 0, n);
+        System.out.println(ans);
+    }
 
-
-        Set<Integer> current = new HashSet<>();
-        current.add(1);
-        current.add(5);
-        current.add(10);
-        current.add(50);
-        int[] roma = {1, 5, 10, 50};
-
-        for (int i = 1; i < N; i++) {  // i = 1부터 시작 (N-1번 반복)
-            Set<Integer> next = new HashSet<>();
-            for (int num : current) {
-                for (int r : roma) {
-                    next.add(num + r);
-                }
+    static void back(int index, int total, int depth, int end) {
+        if (depth == end) {
+            if (list[total] == 0){
+                list[total] = 1;
+                ans += 1;
             }
-            current = next;  // 업데이트
+            return;
         }
-
-        System.out.println(current.size());
+        for (int i = index; i < 4; i++) {
+            back(i, total+score[i],depth +1, end);
+        }
     }
 }
